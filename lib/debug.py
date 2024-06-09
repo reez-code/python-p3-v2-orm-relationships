@@ -3,7 +3,7 @@
 from __init__ import CONN, CURSOR
 from department import Department
 from employee import Employee
-import ipdb
+# import ipdb
 
 
 def reset_database():
@@ -14,6 +14,7 @@ def reset_database():
 
     # Create seed data
     payroll = Department.create("Payroll", "Building A, 5th Floor")
+   
     human_resources = Department.create(
         "Human Resources", "Building C, East Wing")
     Employee.create("Amir", "Accountant", payroll.id)
@@ -24,4 +25,11 @@ def reset_database():
 
 
 reset_database()
-ipdb.set_trace()
+
+# employee = Employee.find_by_id(1)
+# print(employee)
+payroll = Department.find_by_id(1)
+print(payroll.employees())
+
+
+# ipdb.set_trace()
